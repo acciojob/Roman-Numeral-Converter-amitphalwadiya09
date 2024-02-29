@@ -1,5 +1,6 @@
 function convertToRoman(num) {
-    const obj = {
+    const obj = 
+	{
         0: ['M', 1000],
         1: ['D', 500],
         2: ['C', 100],
@@ -9,28 +10,10 @@ function convertToRoman(num) {
         6: ['I', 1]
     };
 
-    let result = '';
-
-    for (let key in obj)
-		{
-        const symbol = obj[key][0];
-        const value = obj[key][1];
-
-        while (num >= value) 
-		{
-            result += symbol;
-            num -= value;
-        }
-
-        // Check for subtractive notation
-        const nextKey = (key - 2) >= 0 ? key - 2 : key - 1;
-        const nextSymbol = obj[nextKey][0];
-        const nextValue = obj[nextKey][1];
-
-        if (nextKey >= 0 && num >= (value - nextValue)) 
-		{
-            result += nextSymbol + symbol;
-            num -= (value - nextValue);
+   for (let key in obj) {
+        while (num >= obj[key][1]) {
+            result += obj[key][0];
+            num -= obj[key][1];
         }
     }
 
